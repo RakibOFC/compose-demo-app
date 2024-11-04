@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.CardElevation
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -84,7 +85,7 @@ fun Greeting(title: String) {
             shape = RoundedCornerShape(15.dp),
             border = BorderStroke(
                 width = 1.dp,
-                Color.Red
+                Color.Black
             ),
             elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
         ) {
@@ -98,18 +99,26 @@ fun Greeting(title: String) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(
+                                    Color.Transparent,
+                                    Color.Red
+                                )
+                            )
+                        )
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
                         .padding(10.dp),
                     contentAlignment = Alignment.BottomCenter
                 ) {
                     Text(
                         title,
-                        modifier = Modifier
-                            .background(Color.Black)
-                            .padding(5.dp),
                         style = TextStyle(
-                            color = Color.White,
+                            color = Color.Green,
                             fontSize = 24.sp,
-                            background = Color.Black,
                         ),
                     )
                 }
